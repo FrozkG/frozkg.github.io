@@ -1,0 +1,30 @@
+---
+import Mail from "./icons/Mail.astro";
+import Linkedin from "./icons/Linkedin.astro";
+import HomePill from "./HomePill.astro";
+---
+
+<div
+  class="flex flex-col md:flex-row lg:flex-row gap-4 lg:gap-16 items-center md:items-start justify-center py-6 pt-16 border-[#151515] border-y-2"
+>
+  <div class="flex flex-col gap-3 justify-center items-start">
+    <h3 class="font-bold text-principal-green text-3xl text-pretty">
+      ¿Tienes algún proyecto en mente?
+    </h3>
+    <p class="text-xl font-medium">Trabajemos juntos</p>
+  </div>
+  <div class="flex md:flex-col lg:flex-col gap-3 items-start">
+    <HomePill
+      className="h-auto flex items-center pr-6"
+      href="mailto:francobl.2002@gmail.com"
+    >
+      <Mail class="size-8" /> Correo
+    </HomePill>
+    <HomePill
+      className="h-auto flex items-center pr-3"
+      href="https://www.linkedin.com/in/francobl"
+    >
+      <Linkedin class="size-8" /> LinkedIn
+    </HomePill>
+  </div>
+</div>

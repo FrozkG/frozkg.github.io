@@ -1,0 +1,52 @@
+---
+import Person from "./icons/Person.astro";
+---
+
+<div class="flex flex-col items-center md:items-start lg:items-start">
+  <div class="flex justify-center items-center">
+    <span>
+      <Person class="size-8" />
+    </span>
+    <h2 class="text-3xl font-semibold pl-2">Sobre mí</h2>
+  </div>
+  <div
+    class="flex flex-col p-8 gap-8 lg:flex-row border-[3px] border-[#141515] rounded-2xl mt-8 w-full"
+  >
+    <div class="w-full lg:w-2/5 flex">
+      <img
+        class="w-full h-auto rounded-lg"
+        src="https://i.pinimg.com/736x/8e/7f/27/8e7f271c236100d8594c163f9002f4a1.jpg"
+        alt=""
+      />
+    </div>
+    <div
+      class="flex flex-col gap-4 items-center justify-center w-full lg:w-3/5 text-white/50"
+    >
+      <p class="text-pretty">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <strong
+          class="font-semibold text-principal-green"
+          >Nisi sed inventore minus, qui corporis animi excepturi</strong
+        >, iusto, ad quia repudiandae vel aut quod.
+      </p>
+      <p class="text-pretty">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.<strong
+          class="font-semibold text-principal-green"
+        >
+          doloribus nemo at! Porro, earum! dorel me.
+        </strong>
+      </p>
+      <p class="text-pretty">
+        <strong class="font-semibold text-principal-green"
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit odio
+          nihil ducimus dolorem minus cumque!</strong
+        > Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis nulla amet
+        earum quo hic odio, reprehenderit impedit saepe velit quia aspernatur libero
+        modi ratione cum!
+        <strong class="font-semibold text-principal-green"
+          >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae
+          mollitia quaerat id!</strong
+        >
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+<header class="mt-2 fixed top-0 left-0 w-full z-10">
+  <nav
+    class="flex gap-4 text-sm justify-center mx-auto w-fit px-10 py-2 rounded-lg header-down transition"
+    id="navbar"
+  >
+    <a href="#home" class="link" id="inicio">Inicio</a>
+    <a href="#projects" class="link" id="proyectos">Proyectos</a>
+    <a href="#about-me" class="link" id="sobre-mi">Sobre mí</a>
+    <a href="#contact" class="link" id="contacto">Contacto</a>
+  </nav>
+</header>
+
+<script type="module">
+  const links = document.querySelectorAll(".link");
+  const sections = document.querySelectorAll(".section");
+
+  // Agregar clase activa al hacer clic
+  links.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      links.forEach((l) => l.classList.remove("active"));
+      event.target.classList.add("active");
+    });
+  });
+
+  // IntersectionObserver para sincronizar con el scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        const link = document.querySelector(`a[href="#${id}"]`);
+
+        if (entry.isIntersecting) {
+          links.forEach((l) => l.classList.remove("active")); // Limpiar todos
+          link.classList.add("active"); // Activar enlace visible
+        }
+      });
+    },
+    { threshold: 0.5 } // Se activa cuando el 50% de la sección es visible
+  );
+
+  sections.forEach((section) => observer.observe(section));
+
+  sections.forEach((section) => observer.observe(section));
+
+  window.onscroll = function () {
+    const navbar = document.getElementById("navbar");
+
+    // Detectar si el usuario ha hecho scroll más allá de 50px
+    if (window.scrollY > 50) {
+      navbar.classList.add(
+        "bg-[#151515]",
+        "border",
+        "border-principal-dark",
+        "shadow-lg",
+        "shadow-principal-green/15"
+      );
+    } else {
+      // No quitar los estilos si el scroll está por debajo de 50px, pero no llega a estar completamente arriba
+      navbar.classList.remove(
+        "bg-[#151515]",
+        "border",
+        "border-principal-dark",
+        "shadow-lg",
+        "shadow-principal-green/15"
+      );
+    }
+  };
+
+  // Asegúrate de que cuando la página recargue, el navbar tenga el estado adecuado si el scroll no es 0
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.scrollY > 50) {
+      const navbar = document.getElementById("navbar");
+      navbar.classList.add(
+        "bg-[#151515]",
+        "border",
+        "border-principal-dark",
+        "shadow-lg",
+        "shadow-principal-green/15"
+      );
+    }
+  });
+</script>
+
+<style>
+  @keyframes appearUp {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .header-down {
+    animation: appearUp 1s ease-out forwards;
+  }
+
+  .link {
+    position: relative;
+    padding-bottom: 2px;
+    transition:
+      color 0.3s,
+      font-weight 0.3s;
+  }
+
+  .link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--principal-green);
+    bottom: 0px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .link:hover::after,
+  .link.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .link:hover,
+  .link.active {
+    font-weight: bold;
+    color: var(--principal-green);
+  }
+</style>

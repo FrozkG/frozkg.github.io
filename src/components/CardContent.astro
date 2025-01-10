@@ -1,0 +1,78 @@
+---
+import Github from "./icons/Github.astro";
+import IconLenguage from "./IconLanguage.astro";
+import Link from "./icons/Link.astro";
+
+const { number } = Astro.props;
+
+const Project = {
+  P1: {
+    title: "Portfolio personal",
+    description:
+      "Portfolio desarrolladon con Astro, Tailwind, JavaScript y TypeScript",
+    link: "",
+    github: "#",
+    image: "images/portfolio.webp",
+    tags: ["Astro", "JavaScript", "Typescript", "TailwindCSS"],
+  },
+  P2: {
+    title: "Proyecto 2",
+    description: "Prueba de despcripcion para el 2do proyecto",
+    link: "#",
+    github: "",
+    image: "images/portfolio.webp",
+    tags: ["JavaScript", "JavaScript", "Typescript"],
+  },
+  P3: {
+    title: "Proyecto 3",
+    description: "Prueba tercera para comprobar que funcione bien",
+    link: "",
+    github: "",
+    image: "images/portfolio.webp",
+    tags: ["Typescript", "TailwindCSS"],
+  },
+} as const;
+
+const projectInfo = Project[number as keyof typeof Project];
+---
+
+<header>
+  <div class="relative w-fit">
+    <img
+      class="rounded-2xl shadow-lg shadow-white/20"
+      src={projectInfo.image}
+    />
+    <div class="flex flex-col gap-1 absolute top-2 right-1">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={projectInfo.github}
+        class="p-2 rounded-full bg-[#151515] hover:bg-slate-200 hover:text-black transition"
+      >
+        <Github class="size-6" />
+      </a>
+
+      {
+        projectInfo.link && (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={projectInfo.link}
+            class="p-2 rounded-full bg-[#151515] hover:bg-slate-200 hover:text-black transition"
+          >
+            <Link class="size-6" />
+          </a>
+        )
+      }
+    </div>
+  </div>
+</header>
+<footer class="flex-col pt-3">
+  <h5 class="text-2xl font-semibold">{projectInfo.title}</h5>
+  <p class="pt-2 pb-3 text-white/40 text-pretty">
+    {projectInfo.description}
+  </p>
+  <ul class="flex w-fit flex-wrap gap-2">
+    {projectInfo.tags.map((tag) => <IconLenguage language={tag} />)}
+  </ul>
+</footer>

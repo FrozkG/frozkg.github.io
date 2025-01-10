@@ -1,0 +1,28 @@
+---
+const { language } = Astro.props;
+
+const Tags = {
+  Astro: {
+    name: "Astro",
+    icon: "/icons/astro.svg",
+  },
+  JavaScript: {
+    name: "JavaScript",
+    icon: "icons/javascript.svg",
+  },
+  TailwindCSS: {
+    name: "Tailwind CSS",
+    icon: "icons/tailwindcss.svg",
+  },
+  Typescript: {
+    name: "Typescript",
+    icon: "icons/typescript.svg",
+  },
+} as const;
+
+const tagInfo = Tags[language as keyof typeof Tags];
+---
+
+<span class={`flex w-fit p-1 justify-center items-center  rounded-xl `}>
+  <img src={tagInfo.icon} alt={`${tagInfo.name} icon`} class="size-6" />
+</span>

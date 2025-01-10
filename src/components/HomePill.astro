@@ -1,0 +1,32 @@
+---
+const { className } = Astro.props;
+---
+
+<a
+  class={`flex relative justify-center items-center md:py-1 lg:py-1 pl-1 gap-1 rounded-lg border-2 bg-[#141515] border-gray-500 bg-gray-800/5 hover:border-principal-green hover:text-principal-dark hover:font-semibold hover:scale-110 btn-start overflow-hidden transition-all duration-300 ease-in-out ${className}`}
+  {...Astro.props}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <slot />
+</a>
+
+<style>
+  .btn-start::after {
+    content: "";
+    width: 1px;
+    height: 1px;
+    background: none;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transition: 0.3s ease-in-out all;
+    border-radius: 100px;
+  }
+
+  .btn-start:hover::after {
+    transform: scale(300);
+    background: var(--principal-green);
+  }
+</style>

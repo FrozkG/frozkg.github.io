@@ -1,0 +1,27 @@
+---
+import Stackicon from "./icons/Stack.astro";
+import StackHover from "./StackHover.astro";
+---
+
+<div class="flex flex-col items-center md:items-start lg:items-start">
+  <div class="flex w-fit items-center pb-5">
+    <span><Stackicon class="size-8" /> </span>
+    <h2 class="text-3xl font-semibold pl-2">Tecnologías</h2>
+  </div>
+  <div
+    class="grid grid-cols-2 pt-10 px-10 gap-16 justify-center items-center md:grid-cols-4 lg:grid-cols-6 border-[3px] border-[#141515] rounded-2xl"
+  >
+    <StackHover technology="Astro" />
+    <StackHover technology="TailwindCSS" />
+    <StackHover technology="HTML" />
+    <StackHover technology="JavaScript" />
+    <StackHover technology="Java" />
+    <StackHover technology="MySQL" />
+    <StackHover technology="CSS" />
+    <StackHover technology="Bootstrap" />
+    <StackHover technology="Git" />
+    <StackHover technology="GitHub" />
+    <StackHover technology="TypeScript" />
+    <StackHover technology="Spring" />
+  </div>
+</div>

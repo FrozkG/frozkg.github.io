@@ -1,0 +1,46 @@
+---
+import "@fontsource/abeezee";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/logoCode.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Porfolio de Franco Barrera</title>
+  </head>
+  <body
+    class="absolute top-0 left-0 z-[-2] h-screen w-screen bg-principal-dark bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] bg-cover"
+  >
+    <slot />
+  </body>
+
+  <style>
+    :root {
+      --principal-green: #76b583;
+      --second-green: #a4d8b0;
+      --white-principal: #d3d3d3;
+      --principal-dark: #0e1011;
+      --secundary-dark: #2c2e43;
+    }
+
+    html,
+    body {
+      background-repeat: no-repeat;
+      color: var(--white-principal);
+      font-family: "ABeeZee", sans-serif;
+      margin: auto;
+      max-width: 100%;
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</html>

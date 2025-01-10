@@ -1,0 +1,52 @@
+---
+import Info from "./icons/Info.astro";
+import Mail from "./icons/Mail.astro";
+import WhatsApp from "./icons/WhatsApp.astro";
+import Maps from "./icons/Maps.astro";
+import Linkedin from "./icons/Linkedin.astro";
+---
+
+<article
+  class="flex flex-col gap-16 justify-center items-center md:items-start border-[3px] border-[#151515] rounded-xl p-3 shadow-lg shadow-principal-green/10"
+>
+  <div class="flex gap-1">
+    <span><Info class="size-8" /></span>
+    <h3 class="text-2xl font-semibold pl-2">Info</h3>
+  </div>
+  <div class="flex flex-col gap-16 justify-center items-start px-10 pb-8">
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="mailto:francobl.2002@gmail.com"
+      class="flex justify-center items-center gap-3"
+    >
+      <span> <Mail class="size-6" /> </span>
+      <p class="text-lg font-medium">francobl.2002@gmail.com</p>
+    </a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://wa.me/51923621696"
+      class="flex justify-center items-center gap-3"
+    >
+      <span> <WhatsApp class="size-6" /> </span>
+      <p class="text-lg font-medium">+51 923-621-696</p>
+    </a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.google.com/maps?q=-11.983722, -77.009278"
+      class="flex justify-center items-center gap-3"
+    >
+      <span> <Maps class="size-6" /> </span>
+      <p class="text-lg font-medium">Lima, Perú</p>
+    </a>
+    <a
+      href="linkedin.com/in/francobl"
+      class="flex justify-center items-center gap-3"
+    >
+      <span> <Linkedin class="size-6" /> </span>
+      <p class="text-lg font-medium">linkedin.com/in/francobl</p>
+    </a>
+  </div>
+</article>

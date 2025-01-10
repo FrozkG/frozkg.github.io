@@ -1,0 +1,106 @@
+---
+const { technology } = Astro.props;
+
+const Technology = {
+  Astro: {
+    name: "Astro",
+    icon: "icons/astro.svg",
+    type: "normal",
+  },
+  Bootstrap: {
+    name: "Bootstrap",
+    icon: "icons/bootstrap.svg",
+    type: "normal",
+  },
+  CSS: {
+    name: "CSS",
+    icon: "icons/css.svg",
+    type: "special",
+    defaultIcon: "icons/cssinvert.svg",
+  },
+  Git: {
+    name: "Git",
+    icon: "icons/git.svg",
+    type: "normal",
+  },
+  GitHub: {
+    name: "GitHub",
+    icon: "icons/github.svg",
+    type: "normal",
+  },
+  HTML: {
+    name: "HTML",
+    icon: "icons/html.svg",
+    type: "special",
+    defaultIcon: "icons/htmlinvert.svg",
+  },
+  Java: {
+    name: "Java",
+    icon: "icons/java.svg",
+    type: "normal",
+  },
+  JavaScript: {
+    name: "JavaScript",
+    icon: "icons/javascript.svg",
+    type: "special",
+    defaultIcon: "icons/javascriptinvert.svg",
+  },
+  MySQL: {
+    name: "MySQL",
+    icon: "icons/mysql.svg",
+    type: "normal",
+  },
+  Spring: {
+    name: "Spring",
+    icon: "icons/spring.svg",
+    type: "normal",
+  },
+  TailwindCSS: {
+    name: "TailwindCSS",
+    icon: "icons/tailwindcss.svg",
+    type: "normal",
+  },
+  TypeScript: {
+    name: "TypeScript",
+    icon: "icons/typescript.svg",
+    type: "special",
+    defaultIcon: "icons/typescriptinvert.svg",
+  },
+} as const;
+
+const techInfo = Technology[technology as keyof typeof Technology];
+---
+
+<div
+  class="flex flex-col p-3 gap-3 items-center justify-center group hover:-translate-y-2 transition-transform duration-300"
+>
+  <span class={`size-20 ${techInfo.type === "special" ? "relative" : ""}`}>
+    {
+      techInfo.type === "special" ? (
+        <div>
+          <img
+            class="absolute inset-0 size-20 transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+            src={techInfo.defaultIcon}
+            alt={`${techInfo.name} default icon`}
+          />
+          <img
+            class="absolute inset-0 size-20 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+            src={techInfo.icon}
+            alt={techInfo.name}
+          />
+        </div>
+      ) : (
+        <img
+          class="size-20 filter brightness-0 invert group-hover:filter-none transition duration-300"
+          src={techInfo.icon}
+          alt={techInfo.name}
+        />
+      )
+    }
+  </span>
+  <h6
+    class="font-semibold opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
+  >
+    {techInfo.name}
+  </h6>
+</div>

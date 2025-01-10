@@ -1,0 +1,33 @@
+---
+const { input } = Astro.props;
+
+const Input = {
+  name: {
+    type: "text",
+    name: "name",
+    placeholder: "Nombre",
+  },
+  mail: {
+    type: "email",
+    name: "mail",
+    placeholder: "Correo",
+  },
+  asunt: {
+    type: "text",
+    name: "asunt",
+    placeholder: "Asunto",
+  },
+} as const;
+
+const inputInfo = Input[input as keyof typeof Input];
+---
+
+<div class="flex flex-col">
+  <input
+    class="p-3 rounded-xl border bg-[#151515] border-secundary-dark focus:outline-none focus:ring-2 focus:ring-secundary-dark focus:border-transparent placeholder:text-secundary-dark"
+    type={inputInfo.type}
+    name={inputInfo.name}
+    placeholder={inputInfo.placeholder}
+    required
+  />
+</div>
